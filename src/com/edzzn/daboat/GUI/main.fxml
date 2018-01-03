@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<!--suppress ALL -->
+
+<BorderPane prefHeight="844.0" prefWidth="1038.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edzzn.daboat.GUI.MainController">
+    <center>
+        <TabPane prefHeight="664.0" prefWidth="596.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <Tab text="Selección">
+                <AnchorPane>
+                    <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="20.0" prefHeight="487.0" prefWidth="991.0" spacing="10.0" AnchorPane.bottomAnchor="206.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="20.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="987.0" spacing="10.0">
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tabla" />
+                            <ComboBox fx:id="tablaComboBoxSeleccion" onAction="#updatedSelectedTableSeleccion" prefWidth="150.0" promptText="Tablas" />
+                            <Region prefHeight="73.0" prefWidth="70.0" />
+                            <HBox alignment="CENTER" prefHeight="129.0" prefWidth="369.0" spacing="10.0">
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ordenar" />
+                                <ComboBox fx:id="atributosOrdenarComboBoxSeleccion" prefWidth="150.0" promptText="Columnas" />
+                                <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="98.0" spacing="10.0">
+                                    <RadioButton fx:id="ascRadioButtonSeleccion" mnemonicParsing="false" text="Ascendente" />
+                                    <RadioButton fx:id="descRadioButtonSeleccion" mnemonicParsing="false" text="Descendente" />
+                                </VBox>
+                            </HBox>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="400.0" prefWidth="987.0" spacing="10.0">
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Campos" />
+                            <HBox alignment="CENTER" maxWidth="500.0" prefHeight="239.0" prefWidth="444.0" spacing="10.0" HBox.hgrow="SOMETIMES">
+                                <VBox alignment="CENTER" maxWidth="250.0" prefHeight="230.0" prefWidth="200.0" spacing="5.0">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Disponibles" />
+                                    <ListView fx:id="disponibleListViewSeleccion" maxHeight="230.0" maxWidth="300.0" prefHeight="167.0" prefWidth="200.0" VBox.vgrow="SOMETIMES" />
+                                </VBox>
+                                <VBox alignment="CENTER" prefHeight="154.0" prefWidth="60.0" spacing="10.0">
+                                    <Button fx:id="seleccionarListViewButton" mnemonicParsing="false" onAction="#onSeleccionarListViewClicked" text="&gt;" />
+                                    <Button fx:id="deseleccionarListViewButton" mnemonicParsing="false" onAction="#onDeseleccionarListViewButtonClicked" text="&lt;" />
+                                </VBox>
+                                <VBox alignment="CENTER" maxWidth="250.0" prefHeight="230.0" prefWidth="200.0" spacing="5.0">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccionado" />
+                                    <ListView fx:id="seleccionadoListViewSeleccion" maxHeight="230.0" maxWidth="300.0" prefHeight="167.0" prefWidth="200.0" VBox.vgrow="SOMETIMES" />
+                                </VBox>
+                            </HBox>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="70.0" prefWidth="987.0" spacing="10.0">
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Condiciones" />
+                            <ComboBox fx:id="colCondicionComboBoxSeleccion" prefWidth="150.0" promptText="Columna" />
+                            <ComboBox fx:id="comparacionComboBoxSeleccion" prefWidth="150.0" promptText="Mayor que" />
+                            <TextField fx:id="valorCondicionTextoSeleccion" />
+                            <Button fx:id="agregarButtonSeleccion" mnemonicParsing="false" onAction="#onAgregarCondicionButtonClicked" text="Agregar" />
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" prefHeight="50.0" prefWidth="987.0">
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <ListView fx:id="condicionesListViewSeleccion" minHeight="50.0" prefHeight="58.0" prefWidth="722.0" />
+                            <Region prefHeight="200.0" prefWidth="0.0" />
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" prefHeight="44.0" prefWidth="998.0">
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <padding>
+                                <Insets top="10.0" />
+                            </padding>
+                            <Button fx:id="resetButtonSeleccion" mnemonicParsing="false" onAction="#onResetButtonClicked" text="Reset">
+                                <HBox.margin>
+                                    <Insets right="10.0" />
+                                </HBox.margin>
+                            </Button>
+                            <Button fx:id="consultarButtonSeleccion" mnemonicParsing="false" onAction="#onConsultarButtonClicked" text="Generar Consulta" />
+                        </HBox>
+                        <Label fx:id="alertLabelSeleccion" textFill="#ff2828" />
+                        <Separator prefWidth="200.0" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="987.0">
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Consulta: ">
+                                <HBox.margin>
+                                    <Insets top="10.0" />
+                                </HBox.margin>
+                            </Text>
+                            <TextArea fx:id="consultaTextSeleccion" minHeight="60.0" prefHeight="57.0" prefWidth="500.0" />
+                        </HBox>
+                    </VBox>
+                    <TableView fx:id="tablaSeleccion" layoutX="20.0" layoutY="533.0" prefHeight="183.0" prefWidth="987.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                </AnchorPane>
+            </Tab>
+            <Tab text="Agregar">
+                <AnchorPane>
+                    <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="20.0" prefHeight="669.0" prefWidth="998.0" spacing="10.0" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="20.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="987.0" spacing="10.0">
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tabla" />
+                            <ComboBox fx:id="tablaComboBoxAgregar" onAction="#updatedSelectedTableAgregar" prefWidth="150.0" />
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="53.0" prefWidth="998.0" spacing="10.0">
+                            <padding>
+                                <Insets top="30.0" />
+                            </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="79.0" prefWidth="998.0" spacing="10.0">
+                            <TableView fx:id="tablaAgregar" editable="true" prefHeight="75.0" prefWidth="998.0" />
+                        </HBox>
+                        <Label fx:id="alertLabelAgregar" textFill="RED" />
+                        <HBox alignment="TOP_CENTER" prefHeight="82.0" prefWidth="987.0">
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <padding>
+                                <Insets top="30.0" />
+                            </padding>
+                            <Button fx:id="resetButtonAgregar" mnemonicParsing="false" onAction="#onResetButtonAgregarClicked" text="Reset">
+                                <HBox.margin>
+                                    <Insets right="10.0" />
+                                </HBox.margin>
+                            </Button>
+                            <Button fx:id="solicitarButtonAgregar" mnemonicParsing="false" onAction="#onSolicitarButtonAgregarClicked" text="Generar Consulta" />
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <HBox alignment="CENTER" prefHeight="5.0" prefWidth="200.0">
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Consulta: ">
+                                <HBox.margin>
+                                    <Insets top="10.0" />
+                                </HBox.margin>
+                            </Text>
+                            <TextArea fx:id="consultaTextAgregar" minHeight="60.0" prefHeight="57.0" prefWidth="500.0" />
+                        </HBox>
+                    </VBox>
+                    <Separator layoutX="436.0" layoutY="710.0" prefWidth="200.0" />
+                </AnchorPane>
+            </Tab>
+            <Tab text="Editar">
+                <AnchorPane>
+                    <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="20.0" prefHeight="669.0" prefWidth="998.0" spacing="10.0" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="20.0">
+                        <HBox alignment="CENTER" prefHeight="55.0" prefWidth="998.0" spacing="10.0">
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tabla" />
+                            <ComboBox fx:id="tablaComboBoxEditar" onAction="#updatedSelectedTableEditar" prefWidth="150.0" />
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="315.0" prefWidth="998.0" spacing="10.0">
+                            <TableView fx:id="ListObjectsTableViewEditar" editable="true" prefHeight="293.0" prefWidth="998.0" />
+                        </HBox>
+                        <Button fx:id="selectObjectFromTableButtonEditar" mnemonicParsing="false" onAction="#onSeleccionarObjectButtonEditarClicked" text="Seleccionar" />
+                        <HBox alignment="CENTER" prefHeight="71.0" prefWidth="998.0" spacing="10.0">
+                            <TableView fx:id="ListEditableObjectTableViewEditar" editable="true" prefHeight="75.0" prefWidth="998.0" />
+                        </HBox>
+                        <Label fx:id="alertLabelEditar" textFill="RED" />
+                        <HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="998.0">
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <padding>
+                                <Insets top="30.0" />
+                            </padding>
+                            <Button fx:id="ResertButtonEditar" mnemonicParsing="false" onAction="#onResetButtonEditarClicked" text="Reset">
+                                <HBox.margin>
+                                    <Insets right="10.0" />
+                                </HBox.margin>
+                            </Button>
+                            <Button fx:id="consultarButtonEditar" mnemonicParsing="false" onAction="#onSolicitarButtonEditarClicked" text="Generar Consulta" />
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <HBox alignment="CENTER" prefHeight="5.0" prefWidth="200.0">
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Consulta: ">
+                                <HBox.margin>
+                                    <Insets top="10.0" />
+                                </HBox.margin>
+                            </Text>
+                            <TextArea fx:id="textConsutaTextAreaEditar" minHeight="60.0" prefHeight="57.0" prefWidth="500.0" />
+                        </HBox>
+                    </VBox>
+                    <Separator layoutX="436.0" layoutY="710.0" prefWidth="200.0" />
+                </AnchorPane>
+            </Tab>
+            <Tab onSelectionChanged="#onSeleccionarObjectButtonEliminarClicked" text="Eliminar">
+                <AnchorPane>
+                    <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="20.0" prefHeight="669.0" prefWidth="998.0" spacing="10.0" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="20.0">
+                        <HBox alignment="CENTER" prefHeight="55.0" prefWidth="998.0" spacing="10.0">
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tabla" />
+                            <ComboBox fx:id="tablaComboBoxEliminar" onAction="#updatedSelectedTableEliminar" prefWidth="150.0" />
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="315.0" prefWidth="998.0" spacing="10.0">
+                            <TableView fx:id="ListObjectsTableViewEliminar" editable="true" prefHeight="293.0" prefWidth="998.0" />
+                        </HBox>
+                        <Button fx:id="selectObjectFromTableButtonEliminar" mnemonicParsing="false" onAction="#onSeleccionarObjectButtonEliminarClicked" text="Seleccionar" />
+                        <HBox alignment="CENTER" prefHeight="71.0" prefWidth="998.0" spacing="10.0">
+                            <TableView fx:id="ListEditableObjectTableViewEliminar" editable="true" prefHeight="70.0" prefWidth="998.0" />
+                        </HBox>
+                        <Label fx:id="alertLabelEliminar" textFill="RED" />
+                        <HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="998.0">
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <padding>
+                                <Insets top="30.0" />
+                            </padding>
+                            <Button fx:id="ResertButtonEliminar" mnemonicParsing="false" onAction="#onResetButtonEliminarClicked" text="Reset">
+                                <HBox.margin>
+                                    <Insets right="10.0" />
+                                </HBox.margin>
+                            </Button>
+                            <Button fx:id="consultarButtonEliminar" mnemonicParsing="false" onAction="#onSolicitarButtonEliminarClicked" text="Generar Consulta" />
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <HBox alignment="CENTER" prefHeight="5.0" prefWidth="200.0">
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Consulta: ">
+                                <HBox.margin>
+                                    <Insets top="10.0" />
+                                </HBox.margin>
+                            </Text>
+                            <TextArea fx:id="textConsutaTextAreaEliminar" minHeight="60.0" prefHeight="57.0" prefWidth="500.0" />
+                        </HBox>
+                    </VBox>
+                    <Separator layoutX="436.0" layoutY="710.0" prefWidth="200.0" />
+                </AnchorPane>
+            </Tab>
+            <Tab text="Administración">
+                <AnchorPane>
+                    <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="20.0" prefHeight="708.0" prefWidth="998.0" spacing="10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="20.0">
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="987.0" spacing="10.0">
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" />
+                            <ComboBox fx:id="userComboBoxAdmin" onAction="#updateAdministracionTab" prefWidth="150.0" />
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="421.0" prefWidth="998.0" spacing="10.0">
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Permisos" />
+                            <HBox alignment="CENTER" maxWidth="500.0" prefHeight="239.0" prefWidth="444.0" spacing="10.0" HBox.hgrow="SOMETIMES">
+                                <VBox alignment="CENTER" maxWidth="250.0" prefHeight="230.0" prefWidth="200.0" spacing="5.0">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Disponibles" />
+                                    <ListView fx:id="disponibleListViewAdmin" maxHeight="405.0" maxWidth="300.0" prefHeight="405.0" prefWidth="200.0" VBox.vgrow="SOMETIMES" />
+                                </VBox>
+                                <VBox alignment="CENTER" prefHeight="154.0" prefWidth="60.0" spacing="10.0">
+                                    <Button mnemonicParsing="false" onAction="#onMoveRightButtonAdmin" text="&gt;" />
+                                    <Button mnemonicParsing="false" onAction="#onMoveLeftButtonAdmin" text="&lt;" />
+                                </VBox>
+                                <VBox alignment="CENTER" maxWidth="250.0" prefHeight="230.0" prefWidth="200.0" spacing="5.0">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccionado" />
+                                    <ListView fx:id="noDisponibleListViewAdmin" maxHeight="428.0" maxWidth="300.0" prefHeight="428.0" prefWidth="200.0" VBox.vgrow="SOMETIMES" />
+                                </VBox>
+                            </HBox>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="44.0" prefWidth="998.0">
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <padding>
+                                <Insets top="10.0" />
+                            </padding>
+                            <Button mnemonicParsing="false" onAction="#onResetButtonAdminClicked" text="Reset">
+                                <HBox.margin>
+                                    <Insets right="10.0" />
+                                </HBox.margin>
+                            </Button>
+                            <Button mnemonicParsing="false" onAction="#onConsultarButtonAdminClicked" text="Generar Consulta" />
+                        </HBox>
+                        <Label fx:id="alertLabelTabAdmin" />
+                        <Separator prefWidth="200.0" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="987.0">
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Consulta: ">
+                                <HBox.margin>
+                                    <Insets top="10.0" />
+                                </HBox.margin>
+                            </Text>
+                            <TextArea fx:id="consultaTextAdmin" minHeight="60.0" prefHeight="57.0" prefWidth="500.0" />
+                        </HBox>
+                    </VBox>
+                </AnchorPane>
+            </Tab>
+        </TabPane>
+    </center>
+    <bottom>
+        <VBox prefHeight="59.0" prefWidth="1027.0" BorderPane.alignment="CENTER">
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="1027.0">
+                <ImageView fitHeight="57.0" fitWidth="200.0">
+                    <Image url="@../Resources/imgs/Escudo-U.png" />
+                </ImageView>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

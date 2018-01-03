@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
+            prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.edzzn.daboat.GUI.LoginController">
+    <ImageView fitHeight="13.0" fitWidth="800.0" layoutY="487.0">
+        <Image url="@../Resources/imgs/botton.png"/>
+    </ImageView>
+    <ImageView fitHeight="57.0" fitWidth="200.0" layoutX="562.0" layoutY="420.0">
+        <Image url="@../Resources/imgs/Escudo-U.png"/>
+    </ImageView>
+    <VBox alignment="CENTER" layoutX="-3.0" layoutY="7.0" prefHeight="200.0" prefWidth="800.0" spacing="10.0">
+        <Label text="DABOAT">
+            <font>
+                <Font name="Roboto Bold" size="50.0"/>
+            </font>
+        </Label>
+        <ImageView fitHeight="5.0" fitWidth="200.0">
+            <Image url="@../Resources/imgs/lines.png"/>
+        </ImageView>
+        <Label text="DATABASE OBJECT ABSTRACTION TOOL">
+            <font>
+                <Font name="Roboto Thin Italic" size="33.0"/>
+            </font>
+        </Label>
+    </VBox>
+    <VBox layoutX="300.0" layoutY="217.0" prefHeight="133.0" prefWidth="200.0" spacing="10.0">
+        <TextField fx:id="username" alignment="CENTER" prefHeight="40.0" prefWidth="200.0" promptText="Usuario"/>
+        <PasswordField fx:id="password" alignment="CENTER" prefHeight="40.0" prefWidth="200.0"
+                       promptText="Contraseña">
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+        </PasswordField>
+        <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButtonClicked" prefHeight="40.0"
+                prefWidth="200.0" text="Iniciar Sesión">
+            <font>
+                <Font name="Roboto" size="12.0"/>
+            </font>
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+        </Button>
+        <Label fx:id="alertLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="198.0"
+               textAlignment="CENTER" textFill="RED">
+            <font>
+                <Font name="Roboto" size="12.0"/>
+            </font>
+        </Label>
+    </VBox>
+    <HBox layoutX="21.0" layoutY="400.0" prefHeight="60.0" prefWidth="200.0" spacing="3.0">
+        <VBox prefHeight="62.0" prefWidth="18.0" spacing="7.0">
+            <ImageView>
+                <Image url="@../Resources/imgs/user.png"/>
+            </ImageView>
+            <ImageView>
+                <Image url="@../Resources/imgs/github.png"/>
+            </ImageView>
+            <ImageView>
+                <Image url="@../Resources/imgs/at.png"/>
+            </ImageView>
+            <ImageView>
+                <Image url="@../Resources/imgs/earth.png"/>
+            </ImageView>
+        </VBox>
+        <VBox prefHeight="200.0" prefWidth="100.0" spacing="7.0">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Edisson Reinozo">
+                <font>
+                    <Font name="Roboto" size="12.0"/>
+                </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\@edzzn">
+                <font>
+                    <Font name="Roboto" size="12.0"/>
+                </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="edisson.reinozo@ucuenca.ec">
+                <font>
+                    <Font name="Roboto" size="12.0"/>
+                </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="http://edzzn.com/">
+                <font>
+                    <Font name="Roboto" size="12.0"/>
+                </font>
+            </Text>
+        </VBox>
+    </HBox>
+    <Button layoutX="14.0" layoutY="368.0" mnemonicParsing="false" onAction="#onConfConButton" opacity="0.51"
+            text="Configuración de Conexión"/>
+</AnchorPane>
